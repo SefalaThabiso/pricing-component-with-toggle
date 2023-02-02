@@ -1,0 +1,313 @@
+:root {
+  /* Colors */
+
+  /* Primary */
+
+  --clr-primary-100: hsl(240, 50%, 97%);
+  --clr-primary-200: hsl(236, 72%, 79%);
+  --clr-primary-300: hsl(237, 63%, 64%);
+
+  /* Neutral */
+
+  --clr-neutral-100: white;
+  --clr-neutral-200: hsl(240, 78%, 98%);
+  --clr-neutral-300: hsl(234, 14%, 74%);
+  --clr-neutral-400: hsl(233, 13%, 49%);
+  --clr-neutral-500: hsl(232, 13%, 33%);
+
+  /* font size */
+  --fs-100: ;
+  --fs-200: ;
+  --fs-300: ;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.5rem;
+  --fs-700: 1.8rem;
+  --fs-800: 2rem;
+  --fs-900: 3rem;
+
+  --fs-title: var(--fs-600);
+  --fs-price: var(--fs-900);
+
+  /* spacing */
+  --size-100: 0.5rem;
+  --size-200: 0.6rem;
+  --size-300: 0.8rem;
+  --size-400: 1rem;
+  --size-500: 1.25rem;
+  --size-600: 1.5rem;
+  --size-700: 2rem;
+  --size-800: 3rem;
+  --size-900: 4rem;
+}
+
+/* reset */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* utility */
+
+.text-100 {
+  color: var(--clr-neutral-100);
+}
+.text-primary-300 {
+  color: var(--clr-primary-300);
+}
+
+.margin-block-400 {
+  margin-block: var(--size-400);
+}
+
+.fs-title {
+  font-size: var(--fs-title);
+}
+
+.fs-price {
+  font-size: var(--fs-price);
+}
+
+.bg-neutral-100 {
+  background-color: var(--clr-neutral-100);
+}
+
+.bg-gradient {
+  background: rgb(163, 168, 240);
+  background: linear-gradient(
+    120deg,
+    rgba(163, 168, 240, 1) 0%,
+    rgba(105, 111, 221, 1) 52%
+  );
+}
+
+/* general styling*/
+
+main {
+  font-family: "Montserrat", sans-serif;
+  background: url(./images/bg-top.svg);
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-color: var(--clr-primary-100);
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+.title {
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding: var(--size-500);
+}
+
+.payment_options {
+  display: flex;
+  justify-content: center;
+  gap: var(--size-400);
+  align-items: center;
+  width: 100%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--clr-primary-300);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--clr-primary-300);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.price {
+  display: none;
+  font-size: var(--size-600);
+}
+
+.visible {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-weight: 700;
+}
+
+.block {
+  display: grid;
+  border-radius: 4px;
+  max-width: 350px;
+  margin-inline: auto;
+  text-align: center;
+  padding: 0 2rem;
+  margin-block: 2rem;
+
+  box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 1px 9px 1px rgba(0, 0, 0, 0.75);
+}
+
+.block ul {
+  list-style: none;
+}
+
+.block ul li {
+  border-top: 1px solid var(--clr-neutral-300);
+  padding: var(--size-100);
+}
+.block ul li:last-child {
+  border-bottom: 1px solid var(--clr-neutral-300);
+}
+
+.btn {
+  border: transparent;
+  border-radius: 4px;
+  padding: 0.3rem;
+  cursor: pointer;
+}
+
+@media (min-width: 50em) {
+  main {
+    min-height: 100vh;
+    background: url(./images/bg-top.svg), url(./images/bg-bottom.svg);
+    background-repeat: no-repeat;
+    background-position: right top, left bottom;
+    background-color: var(--clr-primary-100);
+  }
+  .blocks {
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .block {
+    height: fit-content;
+    width: 250px;
+  }
+
+  .block:nth-child(2) {
+    z-index: 1;
+  }
+
+  .block.bg-gradient {
+    height: fit-content;
+    padding: 1rem 2rem;
+  }
+}
